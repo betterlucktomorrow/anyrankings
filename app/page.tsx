@@ -42,7 +42,10 @@ export default function Home() {
             entertainment, products, food, places, tech, and more.
           </p>
 
-          <div className="mt-12 flex gap-6">
+          <div className="mt-12 flex flex-col items-center gap-6">
+
+          {/* top row */}
+          <div className="flex gap-6">
             <a
               href="#rankings"
               className="border border-black bg-black px-10 py-5 text-lg font-semibold text-white transition hover:bg-white hover:text-black"
@@ -56,14 +59,17 @@ export default function Home() {
             >
               Create Your Own Rankings
             </a>
-
-            <a
-              href="/where-you-rank"
-              className="mt-6 inline-flex border border-black px-10 py-5 text-lg font-semibold transition hover:bg-black hover:text-white"
-            >
-              See Where You Rank
-            </a>
           </div>
+
+          {/* bottom row */}
+          <a
+            href="/where-you-rank"
+            className="border border-black px-10 py-5 text-lg font-semibold transition hover:bg-black hover:text-white"
+          >
+            See Where You Rank
+          </a>
+
+        </div>
         </div>
 
         <div className="border border-black p-12">
@@ -137,7 +143,7 @@ export default function Home() {
 
         <a
           key={category.name}
-          href={`/rankings/${category.name}`}
+          href={`/rankings/${category.name.toLowerCase().replaceAll(" ", "-")}`}
           className="group overflow-hidden rounded border border-black/20 bg-white transition hover:-translate-y-1 hover:border-black"
         >
 
