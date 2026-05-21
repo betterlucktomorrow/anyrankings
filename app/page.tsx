@@ -44,17 +44,24 @@ export default function Home() {
 
           <div className="mt-12 flex gap-6">
             <a
-              href="#launch"
+              href="#rankings"
               className="border border-black bg-black px-10 py-5 text-lg font-semibold text-white transition hover:bg-white hover:text-black"
             >
               Explore Rankings
             </a>
 
             <a
-              href="#about"
+              href="/create"
               className="border border-black px-10 py-5 text-lg font-semibold transition hover:bg-black hover:text-white"
             >
-              Learn More
+              Create Your Own Rankings
+            </a>
+
+            <a
+              href="/where-you-rank"
+              className="mt-6 inline-flex border border-black px-10 py-5 text-lg font-semibold transition hover:bg-black hover:text-white"
+            >
+              See Where You Rank
             </a>
           </div>
         </div>
@@ -101,6 +108,64 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section id="rankings" className="border-t border-black/10 bg-white px-8 py-20 text-black">
+  <div className="mx-auto max-w-7xl">
+
+    <p className="mb-4 text-sm uppercase tracking-[0.35em] text-black/50">
+      Explore
+    </p>
+
+    <h2 className="text-5xl font-black tracking-tight">
+      Featured Categories
+    </h2>
+
+    <p className="mt-6 max-w-3xl text-xl leading-8 text-black/70">
+      Browse popular ranking categories and see what the community is voting for.
+    </p>
+
+    <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+      {[
+        { name: "Movies", emoji: "🎬" },
+        { name: "Anime", emoji: "🌸" },
+        { name: "Fast Food", emoji: "🍔" },
+        { name: "Video Games", emoji: "🎮" },
+        { name: "MLB", emoji: "⚾" },
+        { name: "Kpop", emoji: "🎤" },
+      ].map((category) => (
+
+        <a
+          key={category.name}
+          href={`/rankings/${category.name}`}
+          className="group overflow-hidden rounded border border-black/20 bg-white transition hover:-translate-y-1 hover:border-black"
+        >
+
+          <div className="flex h-40 items-center justify-center bg-gradient-to-br from-zinc-100 to-zinc-200 text-6xl">
+            {category.emoji}
+          </div>
+
+          <div className="border-t border-black/10 bg-white px-5 py-4">
+
+            <h3 className="text-center text-2xl font-bold text-black">
+              {category.name}
+            </h3>
+
+          </div>
+
+        </a>
+
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
     </main>
   );
 }
